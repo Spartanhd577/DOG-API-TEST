@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getBreeds from '../helpers/getBreeds';
-
+import getBreeds from "../helpers/getBreeds";
 
 const Select = ({ updateDog }) => {
   const initialBreeds = [
@@ -20,11 +19,10 @@ const Select = ({ updateDog }) => {
   }, []);
 
   const updateBreeds = () => {
-    getBreeds()
-        .then((newBreeds) => {
-            setBreeds(newBreeds);
-        })
-  }
+    getBreeds().then((newBreeds) => {
+      setBreeds(newBreeds);
+    });
+  };
 
   return (
     <div>

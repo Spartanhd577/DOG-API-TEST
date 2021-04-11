@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Select from './componentz/Select';
-import Card from './componentz/Card';
-import getDog from './helpers/getDog';
-
+import React, { useState, useEffect } from "react";
+import Select from "./componentz/Select";
+import Card from "./componentz/Card";
+import getDog from "./helpers/getDog";
 
 const initialDog = {
   imagen: "",
   breed: {
     id: "",
-    name: ""
-  }
-}
+    name: "",
+  },
+};
 
 function App() {
   const [dog, setDog] = useState(initialDog);
@@ -21,19 +20,17 @@ function App() {
   }, []);
 
   const updateDog = (breedId) => {
-    setLoading(true)
-    getDog(breedId)
-      .then((newDog) => {
-        setDog(newDog);
-        setLoading(false)
-      })
-  }
+    setLoading(true);
+    getDog(breedId).then((newDog) => {
+      setDog(newDog);
+      setLoading(false);
+    });
+  };
 
   return (
     <div className="app">
-      <Select updateDog={updateDog}/>
+      <Select updateDog={updateDog} />
       <Card dog={dog} updateDog={updateDog} loading={loading} />
-      
     </div>
   );
 }
